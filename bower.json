@@ -1,7 +1,7 @@
 {
   "name": "adapt-FKCAudio",
   "version": "1.0.3",
-  "framework": ">=2.3",
+  "framework": ">=3.3",
   "homepage": "https://github.com/uyghurbeg/adapt-FKCAudio",
   "displayName": "FKCAudio",
   "component": "FKCAudio",

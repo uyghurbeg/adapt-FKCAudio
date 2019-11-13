@@ -1,0 +1,15 @@
+{
+  "name": "adapt-FKCAudio",
+  "version": "1.0",
+  "framework": ">=3.3",
+  "homepage": "https://github.com/uyghurbeg/adapt-FKCAudio",
+  "displayName": "FKCAudio",
+  "component": "FKCAudio",
+  "description": "Playback of Audio with a Flash Player fallback for IE8+. Modified from adapt-contrib-media",
+  "main": "/js/adapt-FKCAudio.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}

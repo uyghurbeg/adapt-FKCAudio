@@ -1,0 +1,47 @@
+.FKCAudio-widget {
+
+ .audio-player {
+    padding: 0;
+    width: 28px !important;
+    height: 28px  !important;
+    border-radius: 14px;
+    position: absolute;
+    top: 28px;
+    right: 7px;
+    .dir-rtl & {
+        right:inherit;
+        left: 7px;
+    }
+ }
+
+    // ==============================
+
+    .mejs-controls .mejs-button {
+        button {
+            background-image: url(../../assets/controls.svg);
+        }
+    }
+
+    .mejs-container {
+        background: @primary-color;
+    }
+
+    .mejs-container:hover {
+        background: black;
+    }
+
+    .mejs-container .mejs-controls {
+        background: transparent !important;
+    }
+    
+    .mejs-controls div.mejs-time-rail,
+    .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total,
+    .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+    .mejs-container .mejs-controls .mejs-time,
+    .mejs-volume-button,
+    .mejs-mute,
+    .mejs-controls a.mejs-horizontal-volume-slider
+    {
+        display: none !important;
+    }   
+}

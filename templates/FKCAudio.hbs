@@ -1,0 +1,8 @@
+<div class="FKCAudio-component component-inner" role="region" aria-label="{{_globals._components._FKCAudio.ariaRegion}}>
+    {{> component this}}
+    <div class="FKCAudio-widget component-widget a11y-ignore-aria">
+    {{#if _FKCAudio.mp3}}
+      <audio class="audio-player" src="{{_FKCAudio.mp3}}" type="audio/mp3" style="width: 100%; height: 100%;" {{#if _autoPlay}} autoplay {{/if}}/>
+    {{/if}}
+    </div>
+</div>

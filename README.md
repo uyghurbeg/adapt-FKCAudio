@@ -30,4 +30,6 @@ A simple custom audio player that displays an audio button after the component t
     },
     "_setCompletionOn": "inview"
     }
+    
+# screemshot
 ![](https://github.com/uyghurbeg/adapt-FKCAudio/blob/master/screenshot.png?raw=true)

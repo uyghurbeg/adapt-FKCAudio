@@ -1,7 +1,7 @@
-# adapt-FKCAudio
+# Description
 A simple custom audio player that displays an audio button after the component title, which plays audio in the background. This plugin supports play/stop audio, supports internal/external audio file. This plugin is modified from adapt-contrib-media.
 
-# example
+# Example
 
 
     {"_component": "FKCAudio",
@@ -31,5 +31,5 @@ A simple custom audio player that displays an audio button after the component t
     "_setCompletionOn": "inview"
     }
     
-# screemshot
+# Screenshot
 ![](https://github.com/uyghurbeg/adapt-FKCAudio/blob/master/screenshot.png?raw=true)

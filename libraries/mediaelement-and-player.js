@@ -664,6 +664,8 @@ mejs.PluginMediaElement.prototype = {
 
 	// HTML5 methods
 	play: function () {
+		console.log("HTML5 methods");
+		
 		if (this.pluginApi != null) {
 			if (this.pluginType == 'youtube' || this.pluginType == 'vimeo') {
 				this.pluginApi.playVideo();
@@ -1000,7 +1002,8 @@ mejs.HtmlMediaElementShim = {
 			// second fix for android
 			if (mejs.MediaFeatures.isBustedAndroid) {
 				htmlMediaElement.src = playback.url;
-				htmlMediaElement.addEventListener('click', function() {
+				htmlMediaElement.addEventListener('click', function () {
+					console.log('androod click')
 					htmlMediaElement.play();
 				}, false);
 			}
@@ -1626,34 +1629,6 @@ mejs.HtmlMediaElementShim = {
 		for (m in mejs.HtmlMediaElement) {
 			htmlMediaElement[m] = mejs.HtmlMediaElement[m];
 		}
-
-		/*
-		Chrome now supports preload="none"
-		if (mejs.MediaFeatures.isChrome) {
-		
-			// special case to enforce preload attribute (Chrome doesn't respect this)
-			if (preload === 'none' && !autoplay) {
-			
-				// forces the browser to stop loading (note: fails in IE9)
-				htmlMediaElement.src = '';
-				htmlMediaElement.load();
-				htmlMediaElement.canceledPreload = true;
-
-				htmlMediaElement.addEventListener('play',function() {
-					if (htmlMediaElement.canceledPreload) {
-						htmlMediaElement.src = playback.url;
-						htmlMediaElement.load();
-						htmlMediaElement.play();
-						htmlMediaElement.canceledPreload = false;
-					}
-				}, false);
-			// for some reason Chrome forgets how to autoplay sometimes.
-			} else if (autoplay) {
-				htmlMediaElement.load();
-				htmlMediaElement.play();
-			}
-		}
-		*/
 
 		// fire success code
 		options.success(htmlMediaElement, htmlMediaElement);
@@ -2714,6 +2689,7 @@ if (typeof jQuery != 'undefined') {
 
 							if (t.options.clickToPlayPause) {
 								if (t.media.paused) {
+									console.log("clickToPlayPause");
 									t.play();
 								} else {
 									t.pause();
@@ -3312,14 +3288,18 @@ if (typeof jQuery != 'undefined') {
 			this.setPlayerSize(this.width, this.height);
 			this.setControlsSize();
 		},
-		play: function() {
+		play: function () {
+					console.log("HTML5 changeSkin");
+
 			this.load();
 			this.media.play();
 		},
 		pause: function() {
 			try {
 				this.media.pause();
-			} catch (e) {}
+			} catch (e) {
+				console.log('haha')
+			}
 		},
 		load: function() {
 			if (!this.isLoaded) {
@@ -3502,8 +3482,10 @@ if (typeof jQuery != 'undefined') {
 				
 					if (media.paused) {
 						media.play();
+
 					} else {
 						media.pause();
+						media.setCurrentTime(media.duration + 1); 
 					}
 					
 					return false;

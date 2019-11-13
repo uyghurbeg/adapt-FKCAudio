@@ -50,20 +50,11 @@
       "type": "string",
       "required": true,
       "enum": ["inview", "play", "ended"],
-      "default": "ended",
+      "default": "inview",
       "title": "Completion trigger",
       "inputType": {"type": "Select", "options":["inview", "play", "ended"]},
       "validators": ["required"],
       "help": "Defines what media event should trigger completion of this component."
-    },
-    "_autoPlay": {
-      "type":"boolean",
-      "required":false,
-      "default": "false",
-      "title": "Should Autoplay after load",
-      "inputType":"Checkbox",
-      "validators": [],
-      "help": "If enabled, will add autoplay attribute to Audio player. Attention: 1) If there are many FKCAudio Components are enabled autoplay may cause pause() interruption."
     }
   }
 }

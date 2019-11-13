@@ -3,7 +3,6 @@ define([
   "core/js/views/componentView",
   "libraries/mediaelement-and-player",
   "libraries/mediaelement-and-player-accessible-captions",
-  "libraries/mediaelement-fullscreen-hook"
 ], function(Adapt, ComponentView) {
   var FKCAudio = ComponentView.extend({
     preRender: function() {
@@ -11,9 +10,7 @@ define([
         this,
         "onMediaElementPlay",
         "onMediaElementPause",
-        "onMediaElementEnded",
-        "onMediaElementTimeUpdate",
-        "onMediaElementSeeking"
+        "onMediaElementEnded"
       );
 
       // set initial player state attributes
@@ -87,17 +84,6 @@ define([
         this.$(".component-widget").on("inview", _.bind(this.inview, this));
       }
 
-      // wrapper to check if preventForwardScrubbing is turned on.
-      if (
-        this.model.get("_preventForwardScrubbing") &&
-        !this.model.get("_isComplete")
-      ) {
-        $(this.mediaElement).on({
-          seeking: this.onMediaElementSeeking,
-          timeupdate: this.onMediaElementTimeUpdate
-        });
-      }
-
       // handle other completion events in the event Listeners
       $(this.mediaElement).on({
         play: this.onMediaElementPlay,
@@ -129,66 +115,6 @@ define([
       }
     },
 
-    onMediaElementSeeking: function(event) {
-      var maxViewed = this.model.get("_maxViewed");
-      if (!maxViewed) {
-        maxViewed = 0;
-      }
-      if (event.target.currentTime > maxViewed) {
-        event.target.currentTime = maxViewed;
-      }
-    },
-
-    onMediaElementTimeUpdate: function(event) {
-      var maxViewed = this.model.get("_maxViewed");
-      if (!maxViewed) {
-        maxViewed = 0;
-      }
-      if (event.target.currentTime > maxViewed) {
-        this.model.set("_maxViewed", event.target.currentTime);
-      }
-    },
-
-    // Overrides the default play/pause functionality to stop accidental playing on touch devices
-    setupPlayPauseToggle: function() {
-      // bit sneaky, but we don't have a this.mediaElement.player ref on iOS devices
-      var player = this.mediaElement.player;
-
-      if (!player) {
-        console.log(
-          "Media.setupPlayPauseToggle: OOPS! there's no player reference."
-        );
-        return;
-      }
-
-      // stop the player dealing with this, we'll do it ourselves
-      player.options.clickToPlayPause = false;
-
-      this.onOverlayClick = _.bind(this.onOverlayClick, this);
-      this.onMediaElementClick = _.bind(this.onMediaElementClick, this);
-
-      // play on 'big button' click
-      this.$(".mejs-overlay-button").on("click", this.onOverlayClick);
-
-      // pause on player click
-      this.$(".mejs-mediaelement").on("click", this.onMediaElementClick);
-    },
-
-    onOverlayClick: function() {
-      var player = this.mediaElement.player;
-      if (!player) return;
-
-      player.play();
-    },
-
-    onMediaElementClick: function(event) {
-      var player = this.mediaElement.player;
-      if (!player) return;
-
-      var isPaused = player.media.paused;
-      if (!isPaused) player.pause();
-    },
-
     checkIfResetOnRevisit: function() {
       var isResetOnRevisit = this.model.get("_isResetOnRevisit");
 
@@ -215,40 +141,6 @@ define([
         }
       }
     },
-    remove: function() {
-      this.$(".mejs-overlay-button").off("click", this.onOverlayClick);
-      this.$(".mejs-mediaelement").off("click", this.onMediaElementClick);
-
-      var modelOptions = this.model.get("_playerOptions");
-      delete modelOptions.success;
-
-      if (this.mediaElement && this.mediaElement.player) {
-        var player_id = this.mediaElement.player.id;
-
-        purge(this.$el[0]);
-        this.mediaElement.player.remove();
-
-        if (mejs.players[player_id]) {
-          delete mejs.players[player_id];
-        }
-      }
-
-      if (this.mediaElement) {
-        $(this.mediaElement).off({
-          play: this.onMediaElementPlay,
-          pause: this.onMediaElementPause,
-          ended: this.onMediaElementEnded,
-          seeking: this.onMediaElementSeeking,
-          timeupdate: this.onMediaElementTimeUpdate
-        });
-
-        this.mediaElement.src = "";
-        $(this.mediaElement.pluginElement).remove();
-        delete this.mediaElement;
-      }
-
-      ComponentView.prototype.remove.call(this);
-    },
 
     onPlayerReady: function(mediaElement, domObject) {
       this.mediaElement = mediaElement;
@@ -256,13 +148,6 @@ define([
       if (!this.mediaElement.player) {
         this.mediaElement.player =
           mejs.players[this.$(".mejs-container").attr("id")];
-      }
-
-      if (this.model.has("_startVolume")) {
-        // Setting the start volume only works with the Flash-based player if you do it here rather than in setupPlayer
-        this.mediaElement.player.setVolume(
-          parseInt(this.model.get("_startVolume")) / 100
-        );
       }
 
       this.setReadyStatus();

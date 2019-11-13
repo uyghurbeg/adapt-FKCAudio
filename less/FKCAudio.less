@@ -1,5 +1,12 @@
-.FKCAudio-widget {
 
+.FKCAudio-component {
+    .component-title-inner {
+        padding: 0;
+        padding-right: 10px !important;
+    }
+}
+
+.FKCAudio-widget {
  .audio-player {
     padding: 0;
     width: 28px !important;
@@ -7,15 +14,14 @@
     border-radius: 14px;
     position: absolute;
     top: 28px;
-    right: 7px;
+    right: 14px;
     .dir-rtl & {
         right:inherit;
-        left: 7px;
+        left: 14px;
     }
  }
 
     // ==============================
-
     .mejs-controls .mejs-button {
         button {
             background-image: url(../../assets/controls.svg);
@@ -44,4 +50,22 @@
     {
         display: none !important;
     }   
+}
+
+ @media (min-width: 760px) {
+.component-left .audio-player {
+    right: 8% !important;
+    .dir-rtl {
+        right:inherit;
+        left: 8% !important;
+    }
+  }
+}
+
+@media (min-width: 760px) {
+.dir-rtl {
+    .component-right .audio-player {
+    left: 8% !important;
+    }
+  }
 }

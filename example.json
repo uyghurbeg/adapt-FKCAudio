@@ -1,80 +1,28 @@
 {
-    "_id":"c-15",
-    "_parentId":"b-10",
-    "_type":"component",
-    "_component":"FKCAudio",
-    "_classes":"",
-    "_layout":"left",
-    "title":"Title of the media component",
-    "displayTitle": "Title of the media component",
-    "body": "This is optional body text. Select the play button to start the video.",
-    "instruction": "",
-    "_setCompletionOn":"inview",
-    "_useClosedCaptions":true,
-    "_startLanguage":"en",
-    "_showVolumeControl":true,
-    "_startVolume":"80%",
-    "_playsinline": false,
-    "_FKCAudio": {
-        "mp4": "course/assets/big_buck_bunny.mp4",
-        "ogv": "course/assets/big_buck_bunny.ogv",
-        "poster": "course/assets/big-buck-bunny.jpg",
-        "cc": [
-            {
-                "srclang": "en",
-                "src": "course/en/video/big_buck_bunny_sub.vtt"
-            },
-            {
-                "srclang": "pl",
-                "src": "course/en/video/big_buck_bunny_sub-pl.vtt"
-            }
-        ]
-    },
-    "_transcript": {
-        "_setCompletionOnView":true,
-        "_inlineTranscript": true,
-        "_externalTranscript": false,
-        "inlineTranscriptButton": "Transcript",
-        "inlineTranscriptCloseButton": "Close Transcript",
-        "inlineTranscriptBody": "Transcript body text should go here",
-        "transcriptLinkButton": "Transcript",
-        "transcriptLink": "assets/transcript.pdf"
-    },
-    "_playerOptions": {
-        "poster": "",
-        "showPosterWhenEnded": false,
-        "defaultVideoWidth": 480,
-        "defaultVideoHeight": 270,
-        "videoWidth": -1,
-        "videoHeight": -1,
-        "defaultAudioWidth": 400,
-        "defaultAudioHeight": 30,
-        "defaultSeekBackwardInterval": "(media.duration * 0.05)",
-        "defaultSeekForwardInterval": "(media.duration * 0.05)",
-        "audioWidth": -1,
-        "audioHeight": -1,
-        "startVolume": 0.8,
-        "loop": false,
-        "autoRewind": true,
-        "enableAutosize": true,
-        "alwaysShowHours": false,
-        "showTimecodeFrameCount": false,
-        "framesPerSecond": 25,
-        "autosizeProgress" : true,
-        "alwaysShowControls": false,
-        "hideVideoControlsOnLoad": false,
-        "clickToPlayPause": true,
-        "iPadUseNativeControls": false,
-        "iPhoneUseNativeControls": false,
-        "AndroidUseNativeControls": false,
-        "features": ["playpause","current","progress","duration","tracks","volume","fullscreen"],
-        "isVideo": true,
-        "enableKeyboard": true,
-        "pauseOtherPlayers": true,
-        "startLanguage": "",
-        "tracksText": "mejs.i18n.t('Captions/Subtitles')",
-        "hideCaptionsButtonWhenEmpty": true,
-        "toggleCaptionsButtonWhenOnlyOne": false,
-        "slidesSelector": ""
-    }
+  "_component": "FKCAudio",
+  "_classes": "",
+  "_isOptional": false,
+  "_isAvailable": true,
+  "_isHidden": false,
+  "_isVisible": true,
+  "title": "Mobile Learning – die neue Art des Lernens!",
+  "displayTitle": "Mobile Learning – die neue Art des Lernens!",
+  "body": "<p>Im Zuge der Digitalisierung ändern sich zunehmend auch die Möglichkeiten, Wissensinhalte zu vermitteln. Mobile Learning ist das Schlagwort und bietet den Lernern die Möglichkeit, überall und jederzeit mittels portabler Endgeräte ihr Wissen zu erweitern. Hierzu ist selbstverständlich auch die Art und Weise, wie Inhalte aufbereitet werden, zu berücksichtigen.</p><p>Fischer, Knoblauch und Co. ist ein Vorreiter auf diesem Gebiet und hat unterschiedlichste Lern-Applikationen entwickelt, um Wissen „on the go“ zu vermitteln – immer unter Berücksichtigung der besonderen Didaktik und des speziellen Lernkonzepts. Denn Lernen auf dem Smartphone funktioniert anders als eine Lernsession am Computer.</p>",
+  "_id": "5dcc17689d048c01d0d697a1",
+  "_parentId": "5dcbd1679d048c01d0d6978e",
+  "_type": "component",
+  "_layout": "right",
+  "_onScreen": {
+    "_isEnabled": false,
+    "_classes": "",
+    "_percentInviewVertical": 50
+  },
+  "_pageLevelProgress": {
+    "_isEnabled": true
+  },
+  "instruction": "",
+  "_FKCAudio": {
+    "mp3": "course/en/assets/dae94d2ae419b398c977f27f4190680715ae10c3.mp3"
+  },
+  "_setCompletionOn": "inview"
 }

@@ -1,11 +1,11 @@
 {
   "name": "adapt-FKCAudio",
-  "version": "1.0",
-  "framework": ">=3.3",
+  "version": "1.0.3",
+  "framework": ">=2.3",
   "homepage": "https://github.com/uyghurbeg/adapt-FKCAudio",
   "displayName": "FKCAudio",
   "component": "FKCAudio",
-  "description": "Playback of Audio with a Flash Player fallback for IE8+. Modified from adapt-contrib-media",
+  "description": "A simple custom audio player that displays an audio button after the component title, which plays audio in the background. This plugin supports play/stop audio, supports internal/external audio file. This plugin is modified from adapt-contrib-media.",
   "main": "/js/adapt-FKCAudio.js",
   "keywords": [
     "adapt-plugin",
